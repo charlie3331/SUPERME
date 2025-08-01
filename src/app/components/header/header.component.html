@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="navbar-logo" (click)="irHome()" style="cursor: pointer;">SUPERME</div>
+
+  <button class="menu-toggle" (click)="toggleMenu()">
+    ☰
+  </button>
+
+  <div class="navbar-links" [class.open]="menuAbierto">
+    <a [routerLink]="['/addBox']" (click)="cerrarMenu()">Add</a>
+    <a [routerLink]="['/stock']" (click)="cerrarMenu()">Stock</a>
+    <a [routerLink]="['/new-report']" (click)="cerrarMenu()">New Report</a>
+    <a [routerLink]="['/search-report']" (click)="cerrarMenu()">Search Report</a>
+  </div>
+</nav>

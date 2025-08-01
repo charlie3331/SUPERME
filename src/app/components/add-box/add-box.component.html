@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Add Product</h2>
+  <hr class="custom-line" />
+  <form #formulario="ngForm" (ngSubmit)="enviarProducto()" autocomplete="off" class="form-box">
+    <label>Serial Number:</label>
+    <input
+      [(ngModel)]="serialInput"
+      name="serialInput"
+      class="input"
+      required
+      (keydown.enter)="buscarProducto($event)"
+    />
+
+    <button type="button" (click)="buscarProducto()" class="btn btn-search">
+      Search
+    </button>
+
+    <div *ngIf="producto" class="product-box">
+      <h3>{{ producto.name }}</h3>
+      <p><strong>Serial:</strong> {{ producto.serial }}</p>
+
+      <label for="snpInput"><strong>SNP:</strong></label>
+      <input
+        id="snpInput"
+        [value]="producto.snp"
+        readonly
+        class="input readonly"
+      />
+
+      <div class="qty-box">
+        <label for="qtyInput"><strong>Qty:</strong></label>
+        <input
+          [(ngModel)]="qty"
+          name="qty"
+          id="qtyInput"
+          type="number"
+          min="1"
+          required
+          class="input"
+        />
+      </div>
+
+      <button type="submit" [disabled]="!formulario.form.valid" class="btn btn-submit">
+        Save changes
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="noEncontrado" class="error-message">Product not found</div>
+</div>

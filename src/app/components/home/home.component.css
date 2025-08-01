@@ -1,0 +1,14 @@
+h1 {
+  font-family: Arial, sans-serif;
+  color: #003d73;
+}
+
+p.lead {
+  font-family: Arial, sans-serif;
+  color: #555;
+}
+
+.btn {
+  min-width: 160px;
+  font-weight: 600;
+}

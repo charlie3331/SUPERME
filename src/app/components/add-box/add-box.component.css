@@ -1,0 +1,112 @@
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border: 1px solid #dce4f1;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 85, 175, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-box label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #003366;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #aac4e9;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input.readonly {
+  background-color: #f0f4fa;
+  cursor: not-allowed;
+}
+
+.custom-line {
+  border: none;
+  height: 2px;
+  background-color: #007bff;
+  margin: 1.5rem 0;
+  width: 70%;
+  margin: 1.5rem auto;
+}
+
+h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-search {
+  background-color: #0056b3;
+  color: #ffffff;
+  margin-left: 0.5rem;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.product-box {
+  border-top: 1px solid #ccddee;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.qty-box {
+  margin-top: 1rem;
+}
+
+.error-message {
+  color: #cc0000;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .btn-search,
+  .btn-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+
+.btn-search:hover {
+  background-color: #004494; 
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0056cc; 
+  transition: background-color 0.3s ease;
+}
+
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+

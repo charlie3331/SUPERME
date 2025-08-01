@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <h2>Generate New Report</h2>
+  <hr class="custom-line">
+
+  <!-- Mostrar input solo si hay productos -->
+  <input *ngIf="stock.length > 0" type="text" [(ngModel)]="filtro" class="form-control my-3" placeholder="Search by name or serial" />
+
+  <!-- Tabla solo si hay productos filtrados -->
+  <table *ngIf="filtrarStock().length > 0" class="table table-bordered table-striped table-responsive">
+    <thead class="table-primary">
+      <tr>
+        <th>Name</th>
+        <th>Serial</th>
+        <th>SNP</th>
+        <th>Available Boxes</th>
+        <th>Selected Boxes</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filtrarStock()">
+        <td>{{ item.name }}</td>
+        <td>{{ item.serial }}</td>
+        <td>{{ item.snp }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ seleccion[item.serial] || 0 }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="aumentar(item.serial)">+</button>
+          <button class="btn btn-sm btn-danger" (click)="disminuir(item.serial)">-</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Mensaje cuando no hay productos -->
+  <div *ngIf="stock.length === 0" class="alert alert-info text-center mt-4">
+    No stock available
+  </div>
+
+  <!-- Resumen selección -->
+  <div *ngIf="obtenerResumenSeleccion().length > 0" class="mt-4 p-3 border rounded bg-light shadow-sm">
+    <h5 class="text-primary text-center mb-3">Product Summary</h5>
+    <ul class="list-group">
+      <li
+        *ngFor="let resumen of obtenerResumenSeleccion()"
+        class="list-group-item d-flex justify-content-between align-items-center">
+        {{ resumen.name }} ({{ resumen.serial }})
+        <span class="badge bg-primary rounded-pill">
+          {{ resumen.piezas }} PZS ({{ resumen.cajas }} boxes)
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  
+ <button 
+  *ngIf="obtenerResumenSeleccion().length > 0"
+  class="btn btn-success mt-3"
+  (click)="generarPDF()">
+  Generate Report
+</button>
+
+</div>

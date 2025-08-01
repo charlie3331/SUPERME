@@ -1,0 +1,31 @@
+<div class="stock-container">
+  <h2>Stock</h2>
+  <hr class="custom-line">
+
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>No. Serial</th>
+        <th>SNP</th>
+        <th>Box Qty</th>
+        <th>Parts Qty</th>
+        <th>Last Entry</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of stock">
+        <td>{{ item.name }}</td>
+        <td>{{ item.serial }}</td>
+        <td>{{ item.snp }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.pzs }}</td>
+        <td>{{ item.ultimaFecha | date: 'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="stock.length === 0" class="no-stock">
+    No stock available
+  </div>
+</div>
